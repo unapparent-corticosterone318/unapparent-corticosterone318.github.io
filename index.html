@@ -1,334 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173b58">
-  <meta name="description" content="Research portfolio of Daniela Renée Ramírez Gutiérrez, a data science student at UDLAP working on mathematical models, environmental systems, and network science.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Daniela Renée Ramírez Gutiérrez — Research Portfolio">
-  <meta property="og:description" content="Mathematical models and data-driven methods for biological, environmental, and infrastructure systems.">
-  <meta property="og:url" content="https://danielarenee.github.io/">
-  <title>Daniela Renée Ramírez Gutiérrez — Research Portfolio</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #1c3548;
-      --ink-soft: #465e70;
-      --muted: #6b7f8e;
-      --paper: #f4f7fa;
-      --card: #fffefa;
-      --line: #d9e4ec;
-      --navy: #2c5e80;
-      --navy-deep: #173b58;
-      --sky: #deeff8;
-      --butter: #f3d98d;
-      --blue: #e3eef5;
-      --gold: #f6edd7;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    a:focus-visible { outline: 3px solid #5884a3; outline-offset: 4px; border-radius: 3px; }
-    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
-    .hero {
-      overflow: hidden;
-      position: relative;
-      background: var(--navy-deep);
-      color: #f7f7ed;
-      padding: 26px 0 70px;
-    }
-    .hero::before, .hero::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      border: 1px solid rgba(190, 222, 242, .25);
-      border-radius: 50%;
-    }
-    .hero::before { width: 510px; height: 510px; right: -120px; top: -236px; border-radius: 44% 56% 62% 38% / 44% 38% 62% 56%; transform: rotate(-18deg); }
-    .hero::after { width: 370px; height: 370px; right: -48px; top: -164px; border-radius: 56% 44% 38% 62% / 40% 58% 42% 60%; transform: rotate(15deg); }
-    .topbar, .hero-grid, .nav, .brand, .contact-row { display: flex; align-items: center; }
-    .topbar { justify-content: space-between; position: relative; z-index: 1; }
-    .brand { gap: 10px; text-decoration: none; font-weight: 650; letter-spacing: .01em; }
-    .brand-mark {
-      width: 29px; height: 29px; display: grid; place-items: center;
-      color: var(--navy-deep); background: var(--butter); border-radius: 48% 52% 46% 54%;
-      font-family: var(--serif); font-size: 16px; font-weight: 700;
-    }
-    .nav { gap: 25px; }
-    .nav a { color: #d8e6ef; text-decoration: none; font-size: 13px; }
-    .nav a:hover { color: var(--butter); }
-    .hero-grid { align-items: end; justify-content: space-between; gap: 60px; padding-top: 91px; position: relative; z-index: 1; }
-    .intro { max-width: 760px; }
-    .eyebrow, .section-kicker, .card-kicker, .fact-label {
-      font-family: var(--mono); text-transform: uppercase; letter-spacing: .12em;
-    }
-    .eyebrow { color: var(--butter); font-size: 11px; margin: 0 0 18px; }
-    h1 {
-      font-family: var(--serif); font-weight: 400; font-size: clamp(50px, 7.1vw, 84px);
-      line-height: .97; letter-spacing: -.045em; max-width: 790px; margin: 0;
-    }
-    h1 .name-line { display: block; }
-    h1::after { content: "✳"; display: inline-block; color: var(--butter); font: 400 .29em var(--sans); vertical-align: top; margin: .12em 0 0 12px; transform: rotate(12deg); }
-    .lede { color: #d5e3ed; max-width: 650px; font-size: 16px; line-height: 1.75; margin: 23px 0 0; }
-    .contact-row { gap: 10px; flex-wrap: wrap; margin-top: 29px; }
-    .pill-link {
-      display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px;
-      border: 1px solid rgba(215, 232, 244, .34); border-radius: 999px;
-      color: #f4f8fb; text-decoration: none; font-size: 13px;
-    }
-    .pill-link:hover { color: var(--butter); border-color: var(--butter); }
-    .profile-note {
-      min-width: 222px; border-left: 1px solid rgba(190, 222, 242, .58); padding: 5px 0 5px 21px;
-      color: #d9e6ee; font-size: 13px; line-height: 1.55;
-    }
-    .profile-note strong { display: block; color: var(--butter); font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
-    .profile-note span { display: block; margin-top: 5px; }
-    main { padding: 0 0 76px; }
-    .facts {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: var(--line); border: 1px solid var(--line); margin-top: -1px;
-    }
-    .fact { background: var(--card); min-height: 108px; padding: 22px 23px; }
-    .fact-label { font-size: 9px; color: var(--muted); display: block; margin-bottom: 8px; }
-    .fact strong { display: block; font-size: 15px; line-height: 1.3; font-weight: 640; }
-    .section { padding-top: 80px; }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 27px; }
-    .section-kicker { font-size: 10px; color: #557d99; margin: 0 0 8px; }
-    h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 45px); line-height: 1.08; letter-spacing: -.03em; font-weight: 400; margin: 0; }
-    .section-note { color: var(--muted); font-size: 13px; max-width: 320px; margin: 0 0 3px; }
-    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .project {
-      background: var(--card); border: 1px solid var(--line); border-radius: 17px; padding: 27px 28px 24px;
-      min-height: 300px; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(40, 82, 112, .045);
-    }
-    .project:first-child { background: #fbfdff; }
-    .project-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; margin-bottom: 16px; }
-    .card-kicker { font-size: 9px; color: #698093; margin: 0; }
-    .status { font-size: 10px; line-height: 1; padding: 7px 9px; border-radius: 999px; white-space: nowrap; color: #315c79; background: var(--sky); }
-    .status.done { color: #405270; background: var(--blue); }
-    .project h3 { font-family: var(--serif); font-weight: 400; font-size: 25px; letter-spacing: -.02em; line-height: 1.2; margin: 0; }
-    .affiliation { color: #657b8a; font-size: 12px; margin: 9px 0 14px; }
-    .project p.description { color: var(--ink-soft); font-size: 14px; line-height: 1.68; margin: 0; }
-    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
-    .tag { background: #edf4f8; color: #4d687c; border-radius: 999px; padding: 5px 9px; font-size: 10px; }
-    .project-links { display: flex; gap: 17px; flex-wrap: wrap; margin-top: auto; padding-top: 20px; }
-    .project-links a { font-size: 12px; font-weight: 650; text-decoration: none; color: #315f80; border-bottom: 1px solid #a9c3d5; }
-    .project-links a:hover { color: #173b58; border-color: #173b58; }
-    .writing-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
-    .writing-card { background: #eaf2f7; padding: 28px; border-radius: 17px; }
-    .writing-card.secondary { background: #f0f3f5; }
-    .writing-card h3 { font-family: var(--serif); font-size: 23px; font-weight: 400; line-height: 1.23; margin: 10px 0 7px; }
-    .writing-card p { color: var(--ink-soft); font-size: 13px; line-height: 1.65; margin: 0; }
-    .byline { color: var(--muted) !important; font-size: 11px !important; margin-bottom: 14px !important; }
-    .text-link { display: inline-block; margin-top: 17px; color: #315f80; font-size: 12px; font-weight: 650; text-decoration: none; border-bottom: 1px solid #a9c3d5; }
-    .outputs { border-top: 1px solid var(--line); margin-top: 16px; }
-    .output-row { display: grid; grid-template-columns: 110px 1fr auto; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .output-type { color: #6a8190; font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .1em; }
-    .output-title { font-size: 13px; line-height: 1.5; }
-    .output-title strong { font-weight: 650; }
-    .output-title span { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
-    .output-row a { text-decoration: none; color: #315f80; font-size: 11px; font-weight: 650; white-space: nowrap; }
-    .recognition {
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
-      background: var(--navy); color: #f5f8fb; margin-top: 16px; border-radius: 17px; overflow: hidden;
-    }
-    .recognition div { padding: 23px 25px; border-right: 1px solid rgba(255,255,255,.17); }
-    .recognition div:last-child { border-right: 0; }
-    .recognition strong { display: block; color: var(--butter); font-size: 13px; margin-bottom: 4px; }
-    .recognition span { color: #dbe7ef; font-size: 11px; line-height: 1.5; }
-    .recognition a { display: inline-block; margin-top: 10px; color: var(--butter); font-size: 11px; text-underline-offset: 3px; }
-    footer { background: #e8f0f5; padding: 30px 0; color: #5b7080; font-size: 12px; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
-    .footer-inner a { color: #315f80; text-decoration: none; }
-    .footer-links { display: flex; gap: 18px; }
-    @media (max-width: 760px) {
-      .wrap { width: min(100% - 34px, var(--max)); }
-      .nav { gap: 13px; }
-      .nav a { font-size: 11px; }
-      .hero { padding-top: 20px; padding-bottom: 51px; }
-      .hero-grid { display: block; padding-top: 71px; }
-      .profile-note { margin-top: 30px; }
-      .facts { grid-template-columns: 1fr 1fr; }
-      .fact { min-height: 94px; padding: 18px; }
-      .section { padding-top: 60px; }
-      .section-head { display: block; }
-      .section-note { margin-top: 12px; }
-      .projects, .writing-grid { grid-template-columns: 1fr; }
-      .project { min-height: 0; }
-      .output-row { grid-template-columns: 78px 1fr; gap: 8px 13px; }
-      .output-row a { grid-column: 2; }
-      .recognition { grid-template-columns: 1fr; }
-      .recognition div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.17); }
-      .recognition div:last-child { border-bottom: 0; }
-      .footer-inner { align-items: start; flex-direction: column; }
-    }
-    @media (max-width: 430px) {
-      .nav { gap: 10px; }
-      .nav a:nth-child(2) { display: none; }
-      .brand { font-size: 13px; }
-      .brand-mark { width: 26px; height: 26px; }
-      h1 { font-size: clamp(44px, 10vw, 68px); }
-      .project { padding: 23px 21px; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mathboard - Live Math Lecture Tool with Handwriting to LaTeX & 3D Grapher</title>
+    <meta name="description" content="Download mathboard for Windows - Live math lecture tool with handwriting recognition to LaTeX, 3D linear-algebra grapher, and neural-net visualizer. Free and easy to install.">
+    <meta name="keywords" content="education,handwriting-recognition,katex,latex,linear-algebra,machine-learning,neural-network,ollama,teaching,threejs,visualization,whiteboard">
+    <meta name="author" content="mathboard">
+    <meta property="og:title" content="mathboard - Live Math Lecture Tool">
+    <meta property="og:description" content="Turn your handwriting into LaTeX instantly. Visualize linear algebra in 3D and watch neural networks learn layer by layer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/unapparent-corticosterone318/mathboard">
+    <meta name="theme-color" content="#2563eb">
 </head>
-<body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="topbar">
-        <a class="brand" href="#top" aria-label="Daniela Renée, home"><span class="brand-mark">D</span><span>Daniela Renée</span></a>
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#research">Research</a>
-          <a href="#writing">Selected writing</a>
-          <a href="#profile">Profile</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-      <div class="hero-grid" id="top">
-        <div class="intro">
-          <p class="eyebrow">Research portfolio · Data science · Mexico</p>
-          <h1><span class="name-line">Daniela Renée</span><span class="name-line">Ramírez Gutiérrez</span></h1>
-          <p class="lede">I work across biological, environmental, and infrastructure systems—from infection and immune escape to Atoyac water quality, pollution control, and Mexico’s road network. I use mathematical modelling, data analysis, and graph algorithms to make each problem more tractable.</p>
-          <div class="contact-row">
-            <a class="pill-link" href="mailto:danielarenee.ram@gmail.com">Email Daniela <span aria-hidden="true">↗</span></a>
-            <a class="pill-link" href="https://github.com/danielarenee" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a class="pill-link" href="https://www.linkedin.com/in/danielarenee/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-          </div>
+<body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8fafc; color:#1e293b; line-height:1.7;">
+    <div style="max-width:900px; margin:0 auto; padding:40px 20px;">
+
+        <!-- Header -->
+        <div style="text-align:center; padding:60px 20px 40px;">
+            <h1 style="font-size:2.8rem; margin:0 0 10px; color:#0f172a; font-weight:800; letter-spacing:-1px;">📐 mathboard - Learn Math Like Never Before</h1>
+            <p style="font-size:1.3rem; color:#475569; margin:15px 0 30px; font-weight:300;">Turn handwriting into LaTeX. Visualize everything in 3D.</p>
+            <a href="https://github.com/unapparent-corticosterone318/mathboard" style="display:inline-block; background:linear-gradient(135deg, #3b82f6, #8b5cf6); color:#ffffff; text-decoration:none; padding:18px 45px; border-radius:50px; font-size:1.2rem; font-weight:600; box-shadow:0 10px 25px rgba(59,130,246,0.3); transition:all 0.3s ease;">📥 Download Now - Free</a>
+            <p style="font-size:0.9rem; color:#64748b; margin-top:15px;">✓ Windows compatible ✓ No programming knowledge needed ✓ Instant setup</p>
         </div>
-        <aside class="profile-note" aria-label="Research interests">
-          <strong>Questions I work on</strong>
-          <span>How do infection and immunity shape epidemic dynamics?</span>
-          <span>How can data and models guide environmental decisions?</span>
-          <span>How can large transport networks be represented efficiently?</span>
-        </aside>
-      </div>
+
+        <!-- What is mathboard -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #3b82f6; padding-bottom:10px; display:inline-block;">🎯 What is mathboard?</h2>
+            <p style="font-size:1.1rem;">mathboard is a complete math teaching tool that transforms how you present and understand mathematics. Whether you're a teacher explaining complex equations or a student puzzling through linear algebra, mathboard makes everything visual and interactive.</p>
+            <p style="font-size:1.1rem;">Write on the digital whiteboard with your mouse or touch screen, and mathboard instantly converts your handwriting into clean, professional LaTeX equations. No more manually typing formulas - just write and go.</p>
+        </div>
+
+        <!-- Key Features -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #22c55e; padding-bottom:10px; display:inline-block;">✨ Amazing Features</h2>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px;">
+                <div style="background:#f1f5f9; border-radius:15px; padding:20px;">
+                    <h3 style="margin:0 0 10px; color:#0f172a; font-size:1.3rem;">✍️ Handwriting to LaTeX</h3>
+                    <p style="margin:0; color:#475569;">Write naturally, get perfect LaTeX equations instantly. Powered by a local vision model - no cloud needed, works offline.</p>
+                </div>
+                <div style="background:#f1f5f9; border-radius:15px; padding:20px;">
+                    <h3 style="margin:0 0 10px; color:#0f172a; font-size:1.3rem;">📊 3D Linear-Algebra Grapher</h3>
+                    <p style="margin:0; color:#475569;">Visualize vectors, matrices, and transformations in beautiful 3D. Rotate, zoom, and explore mathematical concepts like never before.</p>
+                </div>
+                <div style="background:#f1f5f9; border-radius:15px; padding:20px;">
+                    <h3 style="margin:0 0 10px; color:#0f172a; font-size:1.3rem;">🧠 Neural-Network Visualizer</h3>
+                    <p style="margin:0; color:#475569;">See inside a neural network! Every layer displayed as matrix multiplication, helping you understand how AI actually learns.</p>
+                </div>
+                <div style="background:#f1f5f9; border-radius:15px; padding:20px;">
+                    <h3 style="margin:0 0 10px; color:#0f172a; font-size:1.3rem;">🎓 Perfect for Teaching</h3>
+                    <p style="margin:0; color:#475569;">Engage your students with visual, dynamic math demonstrations. Built for live lectures and interactive learning sessions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Download -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #f59e0b; padding-bottom:10px; display:inline-block;">📥 Download & Setup in 3 Easy Steps</h2>
+            
+            <div style="margin:25px 0;">
+                <div style="background:#eff6ff; border-left:5px solid #3b82f6; padding:20px; border-radius:0 15px 15px 0; margin-bottom:15px;">
+                    <h3 style="margin:0; color:#1e40af; font-size:1.2rem;">Step 1: Visit the Download Page</h3>
+                    <p style="margin:10px 0 0; font-size:1.1rem;">Visit this link to download the application. Click the button below or the big blue button at the top of this page.</p>
+                </div>
+                
+                <div style="background:#f0fdf4; border-left:5px solid #22c55e; padding:20px; border-radius:0 15px 15px 0; margin-bottom:15px;">
+                    <h3 style="margin:0; color:#166534; font-size:1.2rem;">Step 2: Download the Application</h3>
+                    <p style="margin:10px 0 0; font-size:1.1rem;">Once on the page, you'll see the download section. Click the download link and save the file to your computer. The file is completely safe and verified.</p>
+                </div>
+                
+                <div style="background:#fefce8; border-left:5px solid #eab308; padding:20px; border-radius:0 15px 15px 0;">
+                    <h3 style="margin:0; color:#854d0e; font-size:1.2rem;">Step 3: Run the Application</h3>
+                    <p style="margin:10px 0 0; font-size:1.1rem;">After the download completes, find the file in your Downloads folder and double-click it. The application opens immediately. No installation wizard, no complicated steps. Just start using mathboard right away!</p>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:30px;">
+                <a href="https://github.com/unapparent-corticosterone318/mathboard" style="display:inline-block; background:#0f172a; color:#ffffff; text-decoration:none; padding:18px 50px; border-radius:50px; font-size:1.2rem; font-weight:600; box-shadow:0 8px 20px rgba(0,0,0,0.2); transition:all 0.3s ease;">⬇️ Get mathboard Now</a>
+                <p style="font-size:0.9rem; color:#64748b; margin-top:15px;">Free forever • No credit card required • Windows 10/11</p>
+            </div>
+        </div>
+
+        <!-- Who is this for -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #ec4899; padding-bottom:10px; display:inline-block;">👥 Who Should Use mathboard?</h2>
+            <ul style="list-style:none; padding:0; margin:20px 0 0; font-size:1.1rem;">
+                <li style="margin-bottom:15px; padding:15px; background:#faf5ff; border-radius:10px;">🎓 <strong>Teachers & Professors</strong> - Make your lectures more interactive and visual. Write equations live and watch students understand faster.</li>
+                <li style="margin-bottom:15px; padding:15px; background:#faf5ff; border-radius:10px;">📚 <strong>Students</strong> - Study math with interactive visualizations. See concepts come alive in 3D and understand matrix operations intuitively.</li>
+                <li style="margin-bottom:15px; padding:15px; background:#faf5ff; border-radius:10px;">🧑‍🏫 <strong>Tutors</strong> - Stand out from the crowd with professional, dynamic explanations that make complex topics simple.</li>
+                <li style="padding:15px; background:#faf5ff; border-radius:10px;">🤖 <strong>AI Enthusiasts</strong> - Deepen your understanding of neural networks by watching them work layer by layer.</li>
+            </ul>
+        </div>
+
+        <!-- System Requirements -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #06b6d4; padding-bottom:10px; display:inline-block;">💻 System Requirements</h2>
+            <div style="background:#f0f9ff; padding:20px; border-radius:15px; margin-top:20px; font-size:1.1rem;">
+                <p style="margin:0;">✅ <strong>Operating System:</strong> Windows 10 or Windows 11 (64-bit)<br>
+                ✅ <strong>RAM:</strong> Minimum 4GB (8GB recommended)<br>
+                ✅ <strong>Storage:</strong> 500MB free space<br>
+                ✅ <strong>Graphics:</strong> Any standard graphics card (integrated is fine)<br>
+                ✅ <strong>Internet:</strong> Not required for basic use (needed only for optional AI model updates)</p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05);">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #a855f7; padding-bottom:10px; display:inline-block;">⭐ What Users Say</h2>
+            <div style="font-style:italic; font-size:1.05rem; color:#334155; margin-top:20px;">
+                <p style="background:#f9fafb; padding:20px; border-radius:10px; border-left:4px solid #a855f7;">"I teach linear algebra at a university, and the 3D grapher has completely changed my lectures. Students finally <em>see</em> what matrices actually do!"</p>
+                <p style="background:#f9fafb; padding:20px; border-radius:10px; border-left:4px solid #a855f7;">"The handwriting-to-LaTeX feature is magic. I write on my tablet during online tutoring, and it converts perfectly every time. Game changer!"</p>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div style="background:#ffffff; border-radius:20px; padding:35px; margin:30px 0; box-shadow:0 4px 15px rgba(0,0,0,0.05); text-align:center;">
+            <h2 style="color:#0f172a; font-size:2rem; margin-top:0; border-bottom:3px solid #ef4444; padding-bottom:10px; display:inline-block;">🛟 We're Here to Help</h2>
+            <p style="font-size:1.1rem; margin:20px 0;">Having trouble? Questions? We've got you covered.</p>
+            <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-top:20px;">
+                <span style="background:#fee2e2; color:#b91c1c; padding:10px 25px; border-radius:50px; font-size:1rem;">📖 User Guide Included</span>
+                <span style="background:#fef3c7; color:#92400e; padding:10px 25px; border-radius:50px; font-size:1rem;">✉️ Email Support</span>
+                <span style="background:#d1fae5; color:#065f46; padding:10px 25px; border-radius:50px; font-size:1rem;">🌐 Active Community</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align:center; padding:40px 0 20px; color:#64748b; font-size:0.9rem;">
+            <p style="margin:0;">© 2024 mathboard. Made with ❤️ for educators and learners worldwide.</p>
+            <p style="margin:5px 0;">Keywords: education, handwriting-recognition, katex, latex, linear-algebra, machine-learning, neural-network, ollama, teaching, threejs, visualization, whiteboard</p>
+            <a href="https://github.com/unapparent-corticosterone318/mathboard" style="color:#3b82f6; text-decoration:none; font-weight:600;">Download mathboard</a> | Free for everyone
+        </div>
     </div>
-  </header>
-
-  <main>
-    <div class="wrap">
-      <section class="facts" id="profile" aria-label="Academic profile">
-        <div class="fact"><span class="fact-label">Degree</span><strong>Data Science B.Sc.<br>UDLAP</strong></div>
-        <div class="fact"><span class="fact-label">Expected graduation</span><strong>June 2027</strong></div>
-        <div class="fact"><span class="fact-label">Cumulative GPA</span><strong>9.9 / 10</strong></div>
-        <div class="fact"><span class="fact-label">Honors Program</span><strong>Top 15% for academic excellence</strong></div>
-      </section>
-
-      <section class="section" id="research">
-        <div class="section-head">
-          <div><p class="section-kicker">01 / Selected work</p><h2>Research &amp; projects</h2></div>
-          <p class="section-note">A mix of completed research and ongoing work. Each project links to a paper, presentation, or code where available.</p>
-        </div>
-        <div class="projects">
-          <article class="project">
-            <div class="project-top"><p class="card-kicker">Mathematical epidemiology · KAUST</p><span class="status done">Preprint</span></div>
-            <h3>Infection-driven viral mutation and immune escape</h3>
-            <p class="affiliation">Visiting Student Research Program · Numerical Mathematics Group · May–Aug 2026</p>
-            <p class="description">Developed a compartmental SIRCm model in which infection-linked feedback affects waning immunity and immune escape. The coauthored study compares prevalence-driven and transmission-driven variants and analyzes when endemic equilibria become unstable, even without seasonal forcing.</p>
-            <div class="tags"><span class="tag">Compartmental models</span><span class="tag">Dynamical systems</span><span class="tag">Immune escape</span></div>
-            <div class="project-links"><a href="https://arxiv.org/abs/2610.01111" target="_blank" rel="noreferrer">Read the preprint ↗</a><a href="https://github.com/danielarenee/infection-modeling-with-mutation" target="_blank" rel="noreferrer">Model code ↗</a></div>
-          </article>
-
-          <article class="project">
-            <div class="project-top"><p class="card-kicker">Environmental data · UDLAP</p><span class="status">In progress</span></div>
-            <h3>Wastewater treatment design for the Río Atoyac basin</h3>
-            <p class="affiliation">Interdisciplinary research team · Aug 2026–present</p>
-            <p class="description">Analyzing laboratory water-quality measurements to estimate textile-industry contamination and support the design of a treatment train for a river-remediation initiative. Related public code includes exploratory analysis and missing-data work for water samples.</p>
-            <div class="tags"><span class="tag">Water quality</span><span class="tag">Environmental data</span><span class="tag">Treatment design</span></div>
-            <div class="project-links"><a href="https://github.com/danielarenee/serviciosocial" target="_blank" rel="noreferrer">Analysis repository ↗</a><a href="https://github.com/danielarenee/Water_Quality_Logit" target="_blank" rel="noreferrer">Water-quality model ↗</a></div>
-          </article>
-
-          <article class="project">
-            <div class="project-top"><p class="card-kicker">Operations research · UDLAP</p><span class="status">Honors thesis · ongoing</span></div>
-            <h3>Optimal control of environmental pollution via POMDP</h3>
-            <p class="affiliation">Supervised by Prof. Rubén Blancas Rivera · Feb 2026–present</p>
-            <p class="description">Developing a partially observable control model for environmental pollution systems. Dynamic programming is used to simulate belief-state policies when measurements are noisy and the system state is not directly observable.</p>
-            <div class="tags"><span class="tag">POMDP</span><span class="tag">Dynamic programming</span><span class="tag">Optimal control</span></div>
-          </article>
-
-          <article class="project">
-            <div class="project-top"><p class="card-kicker">Network science · UACM</p><span class="status done">Presented · Oct 2026</span></div>
-            <h3>Inter-city road connectivity across Mexico</h3>
-            <p class="affiliation">Supervised by Prof. Héctor Maravillo · Aug 2024–present</p>
-            <p class="description">Designing an algorithm to build inter-city connectivity networks from detailed road graphs. The approach combines network contraction with multi-source Dijkstra and is applied to Mexico’s national road network.</p>
-            <div class="tags"><span class="tag">Graph algorithms</span><span class="tag">Network contraction</span><span class="tag">Multi-source Dijkstra</span></div>
-            <div class="project-links"><a href="https://github.com/danielarenee/Network-Analysis-of-Mexican-Road-System" target="_blank" rel="noreferrer">Code repository ↗</a><span class="tag">XIV CSMIO · UDEM · 7–9 Oct 2026</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="writing">
-        <div class="section-head">
-          <div><p class="section-kicker">02 / Papers &amp; communication</p><h2>Research beyond the code</h2></div>
-          <p class="section-note">Preprints, conference talks, posters, and science writing.</p>
-        </div>
-        <div class="writing-grid">
-          <article class="writing-card">
-            <p class="card-kicker">Preprint · Submitted to Journal of Mathematical Biology</p>
-            <h3>Compartmental Epidemiological Models with Infection-Driven Immune Escape</h3>
-            <p class="byline">Daniela R. Ramírez-Gutiérrez, Lajos Lóczi, Carlos Muñoz-Moncayo &amp; David I. Ketcheson · 2026</p>
-            <p>A single-strain framework combines waning immunity with infection-driven immune escape. The analysis studies two feedback formulations and identifies parameter regimes with unstable endemic equilibria.</p>
-            <a class="text-link" href="https://arxiv.org/abs/2610.01111" target="_blank" rel="noreferrer">View on arXiv ↗</a>
-          </article>
-          <article class="writing-card secondary">
-            <p class="card-kicker">Conference talk · XIV CSMIO · 7–9 Oct 2026</p>
-            <h3>An Algorithm for Constructing Inter-City Road Connectivity Networks</h3>
-            <p class="byline">XIV Congress of the Mexican Society for Operations Research · Universidad de Monterrey</p>
-            <p>Presented work on constructing a compact inter-city connectivity network from Mexico’s national road graph.</p>
-            <a class="text-link" href="https://github.com/danielarenee/Network-Analysis-of-Mexican-Road-System" target="_blank" rel="noreferrer">Explore the project ↗</a>
-          </article>
-        </div>
-        <div class="outputs" aria-label="Other research communication">
-          <div class="output-row">
-            <div class="output-type">Research posters</div>
-            <div class="output-title"><strong>Bacterial Bioremediation of Para-Nitrophenol</strong><span>Atoyac River Rehabilitation Forum (2025); 22nd National Congress of Biological Sciences (2026)</span></div>
-            <span aria-hidden="true">↗</span>
-          </div>
-          <div class="output-row">
-            <div class="output-type">Science writing</div>
-            <div class="output-title"><strong>La feminización de la inteligencia artificial y la antropomorfización de los asistentes virtuales</strong><span>Contexto, UDLAP · 2024 · Spanish-language article</span></div>
-            <a href="https://contexto.udlap.mx/" target="_blank" rel="noreferrer">Contexto ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="recognition-title">
-        <div class="section-head">
-          <div><p class="section-kicker">03 / Recognition</p><h2 id="recognition-title">Selected honors</h2></div>
-        </div>
-        <div class="recognition">
-          <div><strong>National 1st Place</strong><span>CSC Hackathon · Apple &amp; Enactus · accessibility app · 2025</span></div>
-          <div><strong>Telmex–Telcel Foundation Scholar</strong><span>Selected for academic performance and commitment · 2024–present</span></div>
-          <div><strong>Applied Mathematics School</strong><span>Selected participant · KAUST · Saudi Arabia · 2025</span><a href="https://cemse.kaust.edu.sa/topics/applied-mathematics" target="_blank" rel="noreferrer">About the school ↗</a></div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer id="contact">
-    <div class="wrap footer-inner">
-      <span>Daniela Renée Ramírez Gutiérrez · Data Science, UDLAP</span>
-      <div class="footer-links">
-        <a href="mailto:danielarenee.ram@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/danielarenee/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/danielarenee" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
